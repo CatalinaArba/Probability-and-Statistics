@@ -1,0 +1,118 @@
+1) X-normal (neu, sigma)
+	-student x^2(n)
+	-fisher F(m,n)
+a)P(x<=0) cdf
+	p(x>=0)
+
+pkg load statistics1
+mn=input('mean=')
+sigma=input('std=')
+p1 = normcdf(0, mn, sigma)
+p2=1-p1
+
+mn=1
+sigma=5
+
+//cdf(1)-cdf(-1)
+b)P(-1<=x<=1)
+  P(x<=-1 or x>=1)
+
+p3=normcdf(1)-normcdf(-1)
+p4=1-p3
+
+c)Xx=? P(x<Xalpha)=alpha, alpha e(0,1)
+alpha =input('alpha=')
+p5=norminv(alpha,mn,sigma)
+norminv(p1,mn,sigma)
+fprintf('%1.4f',p5)
+
+alpha=0.41
+
+d)Xn=? B=?(X>X3)
+beta=input('beta=')
+norminv(1-beta,mn,sigma)
+
+COMMAND WINDOW
+mn = 1
+std=5
+sigma = 5
+p1 = 0.4207
+p2 = 0.5793
+>>
+>>
+alpha=0.42
+>>
+p5 = -9.4674e-03
+ans = 3.3307e-16
+-0.0095>>
+
+
+option=input('option=','s')
+switch option
+case 'normal'
+
+case 'student
+  
+THE FINAL PROGRAM
+alpha =input('alpha=')
+beta=input('beta=')
+
+option=input('option=','s')
+switch option
+
+case 'normal'
+mn=input('mean=')
+sigma=input('std=')
+p1 = normcdf(0, mn, sigma)
+p2=1-p1
+p3=normcdf(1)-normcdf(-1)
+p4=1-p3
+
+p5=norminv(alpha,mn,sigma)
+norminv(p1,mn,sigma)
+fprintf('%1.4f',p5)
+
+norminv(1-beta,mn,sigma)
+
+case 'student'
+n=input('n=')
+p1 = tcdf(0, n)
+p2=1-p1
+p3=normcdf(1)-normcdf(-1)
+p4=1-p3
+
+
+case 'fisher'
+m=input('m=')
+n=input('n=')
+p1=fcdf(0,m,n)
+p2=1-p1
+p3=normcdf(1)-normcdf(-1)
+p4=1-p3
+
+
+otherwise
+fprintf('Wrong')
+endswitch
+
+
+2)
+p=input('p=')
+for n=1:3:100
+  k=0:n;
+  prob=binopdf(k,n,p)
+  plot(k,prob)
+  xlim([0,101])
+  ylim([0,2])
+
+  pause(0.2)
+endfor
+
+
+n=input('n=')
+p=input('p=')
+lambda=n*p
+k=0:n
+p1=binopdf(k,n,p)
+p2=poisspdf(k,lambda)
+plot(k,p1,k,p2)
